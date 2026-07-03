@@ -1,0 +1,10 @@
+.crypto-word {
+  display: flex;
+}
+
+.crypto-letter {
+  display: inline-block;
+  min-width: 0.6em;
+  text-align: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}

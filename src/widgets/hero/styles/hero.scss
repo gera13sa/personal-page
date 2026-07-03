@@ -1,0 +1,143 @@
+.hero {
+  min-height: 100vh;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  position: relative;
+  padding: var(--header-full-height) 0 40px;
+}
+
+.hero__layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  //gap: 32px;
+}
+
+.hero__content {
+  max-width: 720px;
+  flex-shrink: 0;
+  order: 1;
+}
+
+.hero__model {
+  flex: 1;
+  min-width: 0;
+  max-width: 700px;
+  height: min(80vh, 680px);
+  order: 2;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  canvas {
+    display: block;
+  }
+}
+
+.hero__model--placeholder {
+  pointer-events: none;
+}
+
+.hero__greeting {
+  font-size: var(--text-size-semi-medium);
+  color: var(--color-text);
+  opacity: 0.9;
+  margin: 0 0 8px;
+}
+
+.hero__name {
+  font-size: var(--text-size-xlarge);
+  font-weight: 700;
+  margin: 0 0 0;
+  line-height: 1.25em !important;
+  background: linear-gradient(135deg, #f5f5f5 0%, #018BD3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero__title {
+  font-size: var(--text-size-medium);
+  margin: 0 0 16px;
+  color: var(--color-text);
+}
+
+.hero__location {
+  text-align: start;
+  font-size: var(--text-size-regular);
+  color: var(--color-text);
+  opacity: 0.8;
+  margin: 0 0 32px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero__scroll-hint {
+  display: none;
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero__scroll-line {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(245, 245, 245, 0.6), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 56px;
+  }
+
+  .hero__layout {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .hero__model {
+    order: -1;
+    width: 100%;
+    max-width: none;
+    height: min(42vh, 320px);
+    min-height: 260px;
+    flex: 0 0 auto;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .hero__content {
+    order: 0;
+    max-width: 100%;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,213 @@
+.experience {
+  padding: var(--gap-size-medium) 0;
+}
+
+.experience__timeline {
+  position: relative;
+}
+
+.experience__item {
+  display: flex;
+  gap: 24px;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.experience__marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 20px;
+  padding-top: 24px;
+}
+
+.experience__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 12px rgba(1, 139, 211, 0.5);
+  flex-shrink: 0;
+}
+
+.experience__line {
+  width: 2px;
+  flex: 1;
+  min-height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-top: 8px;
+}
+
+.experience__card {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  backdrop-filter: blur(3px);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.experience__item:hover .experience__card,
+.experience__item--expanded .experience__card {
+  border-color: rgba(1, 139, 211, 0.75);
+  background: rgba(1, 139, 211, 0.12);
+}
+
+.experience__card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.experience__company {
+  font-size: var(--text-size-semi-medium);
+  margin: 0 0 4px;
+  color: var(--color-text);
+}
+
+.experience__role {
+  font-size: var(--text-size-regular);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.experience__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.experience__period {
+  font-size: var(--text-size-small);
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+.experience__duration {
+  font-size: var(--text-size-xsmall);
+  color: var(--color-text);
+  opacity: 0.65;
+}
+
+.experience__details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.experience__item--expanded .experience__details {
+  max-height: 600px;
+  margin-top: 16px;
+  opacity: 1;
+}
+
+.experience__list {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  color: var(--color-text);
+  opacity: 0.88;
+  font-size: var(--text-size-small);
+  line-height: 1.6;
+}
+
+.experience__list li {
+  margin-bottom: 8px;
+}
+
+.experience__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.experience__stack-tag {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: var(--text-size-xsmall);
+  background: rgba(1, 139, 211, 0.15);
+  color: var(--color-primary);
+  border: 1px solid rgba(1, 139, 211, 0.3);
+}
+
+.experience__toggle {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 20px;
+  color: var(--color-text);
+  opacity: 0.7;
+  transition: transform 0.3s ease;
+}
+
+.experience__item--expanded .experience__toggle {
+  transform: rotate(180deg);
+}
+
+.experience__education {
+  margin-top: var(--gap-size-medium);
+}
+
+.experience__edu-title {
+  font-size: var(--text-size-medium);
+  margin: 0 0 var(--gap-size-small);
+  color: var(--color-text);
+}
+
+.experience__edu-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: rgba(0, 0, 0, 0.7);
+  //backdrop-filter: blur(8px);
+  //-webkit-backdrop-filter: blur(8px);
+  margin-bottom: 12px;
+  transition: border-color 0.3s ease;
+}
+
+.experience__edu-card:hover {
+  border-color: var(--color-border-strong);
+}
+
+.experience__edu-year {
+  font-size: var(--text-size-semi-medium);
+  font-weight: 700;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.experience__edu-degree {
+  font-size: var(--text-size-regular);
+  color: var(--color-text);
+  margin: 0 0 4px;
+}
+
+.experience__edu-uni {
+  font-size: var(--text-size-small);
+  color: var(--color-text);
+  opacity: 0.8;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .experience__card-header {
+    flex-direction: column;
+  }
+
+  .experience__meta {
+    align-items: flex-start;
+  }
+
+  .experience__toggle {
+    top: 16px;
+    right: 16px;
+  }
+}

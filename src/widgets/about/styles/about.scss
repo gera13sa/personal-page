@@ -1,0 +1,134 @@
+.about {
+  padding: var(--gap-size-medium) 0;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-size-medium);
+}
+
+.about__text {
+  //max-width: 720px;
+}
+
+.about__paragraph {
+  font-size: var(--text-size-regular);
+  color: var(--color-text);
+  opacity: 0.88;
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.about__languages {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.about__lang {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  backdrop-filter: blur(2px);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.about__lang-name {
+  font-size: var(--text-size-semi-medium);
+  color: var(--color-text);
+}
+
+.about__lang-level {
+  font-size: var(--text-size-small);
+  color: var(--color-primary);
+}
+
+.about__cameras-section {
+  width: 100%;
+  padding: var(--gap-size-medium) 0;
+}
+
+.about__cameras-title {
+  font-size: var(--text-size-medium);
+  margin: 0 0 8px;
+  color: var(--color-text);
+}
+
+.about__cameras-subtitle {
+  font-size: var(--text-size-small);
+  color: var(--color-text);
+  opacity: 0.8;
+  margin: 0 0 var(--gap-size-small);
+}
+
+.about__cameras-placeholder {
+  width: 100%;
+  min-height: 360px;
+}
+
+.about__cameras {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.camera-card {
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background: black;
+  overflow: hidden;
+    margin: auto;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  //backdrop-filter: blur(2px);
+  width: 350px;
+}
+
+//.camera-card--hovered {
+//  border-color: rgba(1, 139, 211, 0.3);
+//  box-shadow: 0 8px 32px rgba(1, 139, 211, 0.1);
+//}
+
+.camera-card__label {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-size: var(--text-size-small);
+  color: var(--color-text);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 12px;
+  border-radius: 8px;
+  //backdrop-filter: blur(4px);
+}
+
+.camera-card__hint {
+  text-align: center;
+  font-size: var(--text-size-xsmall);
+  color: var(--color-text);
+  opacity: 0.65;
+  margin: 0;
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+  .camera-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .about__languages {
+    gap: 12px;
+  }
+
+  .camera-card__hint {
+    display: none;
+  }
+}

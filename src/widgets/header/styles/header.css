@@ -1,0 +1,17 @@
+.header-container {
+  width: 100%;
+  padding: 30px 20px;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+}
+
+.header-content {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=header.css.map */

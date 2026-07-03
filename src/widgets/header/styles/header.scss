@@ -1,0 +1,114 @@
+.header-container {
+  width: 100%;
+  padding: 20px 10px;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.header-container--scrolled {
+  //background: rgba(0, 0, 0, 0.25);
+  //backdrop-filter: blur(2px);
+  //border-bottom: 1px solid var(--color-border);
+}
+
+.header-content {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-burger {
+  display: none;
+  margin: 12px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.header-burger__line {
+  width: 18px;
+  height: 2px;
+  background: var(--color-text);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header-nav {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  //gap: 12px;
+  justify-content: space-between;
+  //padding: 0 var(--padding-size-small);
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 12px;
+  }
+
+  .header-container--scrolled {
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
+  }
+
+  .header-content {
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .header-burger {
+    display: inline-flex;
+  }
+
+  .header-burger--open .header-burger__line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .header-burger--open .header-burger__line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header-burger--open .header-burger__line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .header-nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: min(88vw, 340px);
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  .header-nav--open {
+    display: flex;
+  }
+
+  .header-nav .app-button {
+    width: 100%;
+  }
+}

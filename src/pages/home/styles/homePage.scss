@@ -1,0 +1,15 @@
+.home-page-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.home-page-main {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 var(--padding-size-small);
+}
+
+html {
+  scroll-behavior: smooth;
+}

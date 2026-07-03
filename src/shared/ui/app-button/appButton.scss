@@ -1,0 +1,181 @@
+.app-button {
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  user-select: none;
+}
+
+.app-button--small {
+  padding: 10px 16px;
+  font-size: var(--text-size-regular);
+  /*width: 25%;*/
+}
+
+.app-button--medium {
+  padding: 14px 24px;
+  font-size: var(--text-size-regular);
+}
+
+.app-button--large {
+  padding: 14px 28px;
+  font-size: var(--text-size-regular);
+  width: 90%;
+}
+
+.app-button--default {
+  background-color: var(--color-bg-btn-default);
+  color: white;
+}
+
+.app-button--default:active:not(:disabled) {
+  background-color: var(--color-bg-btn-default-focus);
+}
+
+.app-button--transparent-borderless {
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+.app-button--transparent-borderless:hover {
+  background-color: var(--color-bg-btn-default);
+  color: black;
+}
+
+.app-button--transparent-borderless:active:not(:disabled) {
+  background-color: var(--color-bg-btn-default-focus);
+  color: black;
+}
+
+.app-button--transparent {
+  background-color: transparent;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.app-button--transparent:hover {
+  background-color: var(--color-bg-btn-default);
+  color: black;
+}
+
+.app-button--transparent:active:not(:disabled) {
+  background-color: var(--color-bg-btn-default-focus);
+  color: white;
+}
+
+.app-button--danger {
+  background-color: var(--color-bg-btn-danger);
+  color: white;
+}
+
+.app-button--danger:active:not(:disabled) {
+  background-color: var(--color-bg-btn-danger-focus);
+}
+
+.app-button--primary {
+  background-color: #47AF2F;
+  color: white;
+}
+
+.app-button--secondary {
+  background-color: white;
+  color: var(--color-text);
+}
+
+.app-button--primary:active:not(:disabled) {
+  background-color: #218838;
+}
+
+.app-button--glass {
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(4px);
+  // todo проверить производительность блюра
+  backface-visibility: hidden;
+
+  box-shadow: inset 0 4px 30px -20px var(--color-text), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  color: white;
+  z-index: 20;
+}
+
+.app-button--glass:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.app-button--glass:active:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.28);
+}
+
+.app-button--elastic {
+  transition: transform 0.1s cubic-bezier(0.25, 1.25, 0.5, 1);
+  will-change: transform;
+}
+
+.app-button--elastic:hover:not(.app-button--disabled):not(.app-button--loading) {
+  transition: transform 0.08s ease-out;
+}
+
+.app-button--elastic:not(:hover) {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.app-button--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.app-button--loading {
+  cursor: wait;
+}
+
+.app-button__loader {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app-button__content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-button__content svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .app-button--small {
+    flex-shrink: 0;
+    padding: 10px 16px;
+  }
+
+  .app-button--medium {
+    flex-shrink: 0;
+    padding: 10px 24px;
+  }
+
+  .app-button--large {
+    padding: 7px 14px;
+  }
+
+  .app-button:hover {
+    background-color: inherit;
+    color: inherit;
+  }
+}

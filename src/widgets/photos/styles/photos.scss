@@ -1,0 +1,108 @@
+.photos {
+  padding: var(--gap-size-medium) 0 0;
+}
+
+.photos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.photos__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.photos__card {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.photos__card:hover {
+  transform: scale(1.03);
+  border-color: rgba(1, 139, 211, 0.3);
+}
+
+.photos__card--active {
+  transform: scale(1.03);
+  border-color: var(--color-primary);
+}
+
+.photos__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photos__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 65%);
+  backface-visibility: hidden;
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photos__card:hover .photos__overlay,
+.photos__card--active .photos__overlay {
+  opacity: 1;
+}
+
+.photos__title {
+  font-size: var(--text-size-small);
+  color: var(--color-text);
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 6px 10px;
+  //backdrop-filter: blur(6px);
+  //-webkit-backdrop-filter: blur(6px);
+}
+
+.photos__lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.3s ease;
+}
+
+.photos__lightbox-content {
+  max-width: 1250px;
+  width: 100%;
+}
+
+.photos__lightbox-image {
+  aspect-ratio: 3 / 2;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.photos__lightbox-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

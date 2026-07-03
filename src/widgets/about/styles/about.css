@@ -1,0 +1,17 @@
+.about-page-container {
+  width: 100vw;
+  margin-top: 5vh;
+}
+
+.about-page-cameras {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.about-page-header {
+  font-size: 27px;
+}
+
+/*# sourceMappingURL=about.css.map */

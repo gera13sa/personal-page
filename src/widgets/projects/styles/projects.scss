@@ -1,0 +1,91 @@
+.projects {
+  padding: var(--gap-size-medium) 0;
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.projects__card-shell {
+  will-change: transform;
+}
+
+.projects__card {
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: transform 0.15s linear, border-color 0.15s ease;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.projects__card:hover {
+  border-color: rgba(1, 139, 211, 0.75);
+}
+
+.projects__card-glow {
+  position: absolute;
+  top: -45%;
+  right: -45%;
+  width: 100%;
+  height: 125%;
+  background: radial-gradient(circle, rgba(1, 139, 211, 0.2) 0%, transparent 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projects__card:hover .projects__card-glow {
+  opacity: 1;
+}
+
+.projects__card-company {
+  font-size: var(--text-size-xsmall);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.projects__card-title {
+  font-size: var(--text-size-semi-medium);
+  margin: 8px 0 12px;
+  color: var(--color-text);
+}
+
+.projects__card-desc {
+  font-size: var(--text-size-small);
+  color: var(--color-text);
+  opacity: 0.88;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.projects__card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.projects__tag {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: var(--text-size-xsmall);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text);
+  opacity: 0.9;
+  border: 1px solid var(--color-border);
+}
+
+@media (max-width: 768px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects__card-shell {
+    transform: none !important;
+  }
+}
