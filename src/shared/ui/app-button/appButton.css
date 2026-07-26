@@ -15,6 +15,10 @@
   user-select: none;
 }
 
+.app-button:active:not(:disabled) {
+  transform: scale(1.05);
+}
+
 .app-button--small {
   padding: 10px 16px;
   font-size: var(--text-size-regular);

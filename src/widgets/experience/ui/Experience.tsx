@@ -61,8 +61,6 @@ export const Experience = () => {
 										))}
 									</div>
 								</div>
-
-								<span className="experience__toggle">{isExpanded ? '−' : '+'}</span>
 							</div>
 						</div>
 					);

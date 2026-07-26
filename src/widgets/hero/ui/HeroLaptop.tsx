@@ -20,7 +20,7 @@ export const HeroLaptop = () => {
 
 	useEffect(() => {
 		const idleCallback = window.requestIdleCallback
-			? window.requestIdleCallback(() => setIsReady(true), {timeout: 800})
+			? window.requestIdleCallback(() => setIsReady(true), {timeout: 500})
 			: window.setTimeout(() => setIsReady(true), 300);
 
 		return () => {
@@ -42,7 +42,7 @@ export const HeroLaptop = () => {
 		return () => mediaQuery.removeEventListener('change', handleChange);
 	}, []);
 
-	const boundsMargin = isMobile ? 1.42 : 1.32;
+	const boundsMargin = isMobile ? 1.32 : 1.32;
 
 	return (
 		<div ref={containerRef} className="hero__model">
@@ -59,15 +59,15 @@ export const HeroLaptop = () => {
 						height: '100%',
 					}}
 				>
-					<ambientLight intensity={1.1}/>
-					<directionalLight position={[4, 6, 4]} intensity={0.65}/>
-					<directionalLight position={[-3, 2, -2]} intensity={0.25}/>
+					<ambientLight intensity={1.5}/>
+					<directionalLight position={[5, 5, 3]} intensity={1.65}/>
+					<directionalLight position={[-3, 2, -3]} intensity={0.55}/>
 
 					<Suspense fallback={null}>
 						<Bounds fit clip observe margin={boundsMargin}>
 							<Centered>
 								<Laptop
-									scale={2}
+									scale={2.25}
 									rotation={[0.22, 0, 0]}
 								/>
 							</Centered>
@@ -77,6 +77,8 @@ export const HeroLaptop = () => {
 					<OrbitControls
 						ref={orbitRef}
 						enableZoom={false}
+						enablePan={false}
+						enableDamping={false}
 						autoRotateSpeed={0.5}
 						minPolarAngle={Math.PI / 3}
 						maxPolarAngle={Math.PI / 1.8}

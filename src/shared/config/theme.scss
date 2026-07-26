@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 @font-face {
   font-family: 'Golos Text';
   src: local('Golos Text'), url(../../assets/fonts/GolosText-VariableFont_wght.ttf) format('truetype');
@@ -86,7 +84,7 @@ span, h1, h2, h3, h4, h5, h6, p, tr, td, th {
   --max-width-content: 1240px;
 
   --padding-size-small: 24px;
-  --padding-size-small-mobile: 16px;
+  --padding-size-small-mobile: 24px;
 
   --padding-size-medium: 32px;
 

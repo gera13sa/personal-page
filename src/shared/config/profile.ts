@@ -33,6 +33,7 @@ export const profile = {
 	phone: '+7 (952) 071-90-70',
 	telegram: '@gera13sa',
 	vk: 'https://vk.ru/gera13sa',
+	resume: '/docs/resume.pdf',
 	about: [
 		'Выпускник магистратуры МГУ им. Н.П. Огарёва по направлению «Программная инженерия». В IT с третьего курса бакалавриата – начинал с поддержки legacy-кода на AngularJS, постепенно переходил на современный Angular v8+, затем на React и мобильную разработку на React Native.',
 		'В свободное время занимаюсь плёночной и цифровой фотографией. Держу домашний сервер для экспериментов с ИИ и развёртывания личных проектов.',
@@ -51,7 +52,7 @@ export const profile = {
 			university: 'Национальный исследовательский Мордовский государственный университет им. Н.П. Огарёва',
 			faculty: 'Факультет математики и информационных технологий',
 			specialty: 'Программная инженерия',
-		},
+		}
 	],
 	languages: [
 		{name: 'Русский', level: 'Родной'},
@@ -142,7 +143,7 @@ export const profile = {
 			skills: [
 				{name: 'React', level: 90},
 				{name: 'TypeScript', level: 85},
-				{name: 'Angular', level: 75},
+				{name: 'Angular', level: 60},
 				{name: 'React Native', level: 60},
 				{name: 'HTML / CSS', level: 85},
 				{name: 'Vite', level: 85},

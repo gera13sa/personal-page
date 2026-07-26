@@ -18,6 +18,8 @@ export default function MeshBackground({columns = 10}) {
 			style={{
 				position: 'absolute',
 				inset: 0,
+				marginLeft: -1,
+				marginTop: -1,
 				backgroundImage: `
           linear-gradient(to right, rgba(255,255,255,0.18) 1px, transparent 1px),
           linear-gradient(to bottom, rgba(255,255,255,0.18) 1px, transparent 1px)

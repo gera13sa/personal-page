@@ -60,7 +60,7 @@ export const CameraModel = ({children, cameraProps, label, isActive = true}: Cam
 				camera={cameraProps}
 				dpr={[1, 1.5]}
 				frameloop={isActive ? 'always' : 'never'}
-				gl={{powerPreference: 'high-performance'}}
+				// gl={{powerPreference: 'high-performance'}}
 				style={{
 					backgroundColor: 'transparent',
 					width: '100%',

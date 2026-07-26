@@ -45,6 +45,14 @@ export const Hero = () => {
 								onEvent={() => scrollTo('projects')}
 							/>
 							<AppButton
+								text="Смотреть резюме"
+								type="transparent"
+								elastic
+								onEvent={() => {
+									window.open(profile.resume, '_blank', 'noopener,noreferrer');
+								}}
+							/>
+							<AppButton
 								text="Написать"
 								type="transparent"
 								elastic

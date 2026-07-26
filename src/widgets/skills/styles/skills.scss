@@ -21,12 +21,16 @@
   font-family: inherit;
   font-size: var(--text-size-small);
   padding: 10px 20px;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 }
 
 .skills__tab:hover {
   border-color: var(--color-primary);
   color: var(--color-text);
+}
+
+.skills__tab:active {
+  transform: scale(1.05);
 }
 
 .skills__tab--active {
