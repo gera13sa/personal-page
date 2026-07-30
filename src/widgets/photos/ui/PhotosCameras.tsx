@@ -17,7 +17,7 @@ export const PhotosCameras = () => {
 				{shouldMount ? (
 					<>
 						<CameraModel
-							cameraProps={{position: [1, 0, 0], fov: 60}}
+							cameraProps={{position: [2.5, 0, 0], fov: 20}}
 							label="Canon 7"
 							isActive={isActive}
 						>
@@ -27,7 +27,7 @@ export const PhotosCameras = () => {
 						</CameraModel>
 
 						<CameraModel
-							cameraProps={{position: [1, 0, 0], fov: 60}}
+							cameraProps={{position: [2.75, 0, 0], fov: 20}}
 							label="Киев-4"
 							isActive={isActive}
 						>
@@ -37,7 +37,7 @@ export const PhotosCameras = () => {
 						</CameraModel>
 
 						<CameraModel
-							cameraProps={{position: [50, 0, 0], fov: 60}}
+							cameraProps={{position: [150, 0, 0], fov: 20}}
 							label="Киев-60"
 							isActive={isActive}
 						>

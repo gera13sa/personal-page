@@ -106,14 +106,13 @@
   background: rgba(0, 0, 0, 0.5);
   padding: 4px 12px;
   border-radius: 8px;
-  //backdrop-filter: blur(4px);
 }
 
 .camera-card__hint {
   text-align: center;
   font-size: var(--text-size-xsmall);
   color: var(--color-text);
-  opacity: 0.65;
+  opacity: 0.5;
   margin: 0;
   padding: 8px;
 }

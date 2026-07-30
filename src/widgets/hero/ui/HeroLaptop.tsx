@@ -1,6 +1,6 @@
 import {Suspense, useEffect, useRef, useState} from 'react';
 
-import {Bounds, OrbitControls} from '@react-three/drei';
+import {Bounds, OrbitControls, RandomizedLight} from '@react-three/drei';
 import {Canvas} from '@react-three/fiber';
 
 import {useLazyInView} from '@shared/hooks/useLazyInView.ts';
@@ -42,33 +42,35 @@ export const HeroLaptop = () => {
 		return () => mediaQuery.removeEventListener('change', handleChange);
 	}, []);
 
-	const boundsMargin = isMobile ? 1.32 : 1.32;
+	const boundsMargin = isMobile ? 1.3 : 1.25;
 
 	return (
 		<div ref={containerRef} className="hero__model">
 			{isReady && (
 				<Canvas
 					key={isMobile ? 'mobile' : 'desktop'}
-					camera={{position: [0, 0.2, 1.35], fov: 50}}
+					camera={{position: [0, 0.2, 1.35], fov: 25}}
 					dpr={[1, 1.5]}
 					frameloop={isActive ? 'always' : 'never'}
-					gl={{powerPreference: 'high-performance'}}
+					gl={{powerPreference: 'high-performance', antialias: true}}
 					style={{
 						backgroundColor: 'transparent',
+						overflow: 'visible',
 						width: '100%',
 						height: '100%',
 					}}
 				>
-					<ambientLight intensity={1.5}/>
-					<directionalLight position={[5, 5, 3]} intensity={1.65}/>
-					<directionalLight position={[-3, 2, -3]} intensity={0.55}/>
+					<ambientLight intensity={5}/>
+					<directionalLight position={[1, 2, - 5]} intensity={0.45}/>
+					<RandomizedLight size={1} intensity={0.2} />
+					<directionalLight position={[1, 2.5, -2]} intensity={0.25}/>
 
 					<Suspense fallback={null}>
 						<Bounds fit clip observe margin={boundsMargin}>
 							<Centered>
 								<Laptop
-									scale={2.25}
-									rotation={[0.22, 0, 0]}
+									scale={2.3}
+									rotation={[0.3, 0, 0]}
 								/>
 							</Centered>
 						</Bounds>

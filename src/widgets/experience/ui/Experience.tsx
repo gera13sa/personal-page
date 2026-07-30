@@ -17,7 +17,7 @@ export const Experience = () => {
 		<section className="experience" id="experience">
 			<SectionTitle
 				text="Опыт"
-				subtitle={`${getTotalExperienceDuration(profile.experience)} в разработке фронтенда`}
+				subtitle={`${getTotalExperienceDuration(profile.experience)} в разработке`}
 			/>
 
 			<div className="experience__timeline">
