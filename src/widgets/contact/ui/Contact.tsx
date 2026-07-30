@@ -169,7 +169,10 @@ export const Contact = () => {
 			</div>
 
 			<footer className="contact__footer">
-				<p>© {new Date().getFullYear()} {profile.fullName}</p>
+				<a href={'https://github.com/gera13sa/personal-page'} target='_blank'>
+					Репозиторий на GitHub
+				</a>
+				<p>{new Date().getFullYear()} {profile.fullName}</p>
 			</footer>
 		</section>
 	);

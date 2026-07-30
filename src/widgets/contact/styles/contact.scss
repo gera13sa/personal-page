@@ -130,11 +130,15 @@
   text-align: center;
 }
 
-.contact__footer p {
+.contact__footer p, .contact__footer a {
   font-size: var(--text-size-small);
   color: var(--color-text);
   opacity: 0.7;
   margin: 0;
+}
+
+.contact__footer a:hover {
+  color: #0097ea;
 }
 
 @media (max-width: 768px) {
