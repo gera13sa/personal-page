@@ -128,9 +128,11 @@
   padding: var(--gap-size-small) 0;
   border-top: 1px solid var(--color-border);
   text-align: center;
+  backdrop-filter: blur(2px);
 }
 
-.contact__footer p, .contact__footer a {
+.contact__footer p,
+.contact__footer a {
   font-size: var(--text-size-small);
   color: var(--color-text);
   opacity: 0.7;

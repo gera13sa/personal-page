@@ -1,10 +1,10 @@
 import {useRef, useState, type MouseEvent} from 'react';
 
 import {profile} from '@shared/config/profile.ts';
-// import {useSpringScrollInertia} from '@shared/hooks/useSpringScrollInertia.ts';
 import {SectionTitle} from '@shared/ui/section-title/SectionTitle.tsx';
 
 import '../styles/projects.scss';
+
 
 const ProjectCard = ({
 	project,
@@ -13,11 +13,6 @@ const ProjectCard = ({
 }) => {
 	const cardRef = useRef<HTMLDivElement>(null);
 	const [transform, setTransform] = useState('');
-	// const inertiaOffset = useSpringScrollInertia({
-	// 	enabled: true,
-	// 	strength: 0.2,
-	// 	maxOffset: 24,
-	// });
 
 	const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
 		if (!cardRef.current) return;
@@ -32,7 +27,6 @@ const ProjectCard = ({
 	return (
 		<div
 			className="projects__card-shell projects__card-shell--inertia"
-			// style={{transform: `translate3d(0, ${inertiaOffset}px, 0)`}}
 		>
 			<div
 				ref={cardRef}

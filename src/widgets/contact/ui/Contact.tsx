@@ -1,4 +1,4 @@
-import {useState, type FormEvent} from 'react';
+import {useState, type FormEvent, useEffect, useRef} from 'react';
 
 import {profile} from '@shared/config/profile.ts';
 import {AppButton} from '@shared/ui/app-button/AppButton.tsx';
@@ -23,6 +23,17 @@ export const Contact = () => {
 	const [form, setForm] = useState<FormData>(initialForm);
 	const [status, setStatus] = useState<FormStatus>('idle');
 	const [errorMessage, setErrorMessage] = useState('');
+	const contactSectionRef = useRef<HTMLDivElement | null>(null);
+
+	// todo сделать анимацию мета боллов
+	const animateBall = () => {
+		return;
+	};
+
+	useEffect(() => {
+		const animation = requestAnimationFrame(animateBall);
+		return () => cancelAnimationFrame(animation);
+	}, []);
 
 	const handleChange = (field: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		setForm((prev) => ({...prev, [field]: e.target.value}));
@@ -57,8 +68,8 @@ export const Contact = () => {
 	};
 
 	return (
-		<section className="contact" id="contact">
-			<SectionTitle text="Контакты" subtitle="Напишите мне – отвечу в ближайшее время"/>
+		<section ref={contactSectionRef} className="contact" id="contact">
+			<SectionTitle text="Контакты" subtitle="Напишите мне – отвечу в ближайшее время" />
 
 			<div className="contact__layout">
 				<ScrollReveal delay={150}>
@@ -149,7 +160,7 @@ export const Contact = () => {
 									rel="noopener noreferrer"
 									className="contact__info-link contact__info-link--with-icon"
 								>
-									<TelegramIcon size={18}/>
+									<TelegramIcon size={18} />
 									{profile.telegram}
 								</a>
 							</div>
@@ -161,7 +172,7 @@ export const Contact = () => {
 							</div>
 							<div className="contact__info-item">
 								<span className="contact__info-label">Локация</span>
-								 <span className="contact__info-value">{profile.location}</span>
+								<span className="contact__info-value">{profile.location}</span>
 							</div>
 						</div>
 					</div>
@@ -172,7 +183,7 @@ export const Contact = () => {
 				<a href={'https://github.com/gera13sa/personal-page'} target='_blank'>
 					Репозиторий на GitHub
 				</a>
-				<p>{new Date().getFullYear()} {profile.fullName}</p>
+				{/*<p>{new Date().getFullYear()} {profile.fullName}</p>*/}
 			</footer>
 		</section>
 	);

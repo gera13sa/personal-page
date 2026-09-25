@@ -1,4 +1,6 @@
 import React, {useRef, useState, type MouseEvent, type ReactNode} from 'react';
+import {GlassLensFilter} from '@shared/ui/glass-lens/GlassLensFilter';
+import {useGlassLens} from '@shared/ui/glass-lens/useGlassLens';
 import './appButton.scss';
 
 export type ButtonType =
@@ -46,6 +48,7 @@ export const AppButton = ({
 		('ontouchstart' in window || navigator.maxTouchPoints > 0);
 	const useElastic = elastic && !isTouchDevice;
 	const ref = useRef<HTMLDivElement>(null);
+	const lens = useGlassLens(ref, type === 'glass');
 	const [transform, setTransform] = useState<string>('translate(0,0) scale(1,1)');
 	const [lastTransform, setLastTransform] = useState({x: 0, y: 0});
 
@@ -127,8 +130,18 @@ export const AppButton = ({
 			onTouchEnd={() => setTransform('translate(0,0) scale(1,1)')}
 			aria-disabled={isActuallyDisabled}
 			aria-busy={isActuallyLoading}
-			style={{...style, transform}}
+			style={{
+				...style,
+				transform,
+				...(lens.mapHref
+					? {
+						backdropFilter: `url(#${lens.filterId}) saturate(1.2)`,
+						WebkitBackdropFilter: `url(#${lens.filterId}) saturate(1.2)`,
+					}
+					: null),
+			}}
 		>
+			{lens.mapHref ? <GlassLensFilter id={lens.filterId} mapHref={lens.mapHref} scale={lens.scale}/> : null}
 			<span className="app-button__content">
 				{IconLeft}
 				{text}
