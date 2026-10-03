@@ -1,5 +1,5 @@
 .contact {
-  padding: 0;
+  padding: var(--gap-size-medium) 0 0;
 }
 
 .contact__layout {
@@ -12,7 +12,7 @@
 .contact__info-panel,
 .contact__form-panel {
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 28px;
   background: #090909;
 }

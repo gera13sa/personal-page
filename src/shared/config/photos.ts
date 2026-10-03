@@ -17,6 +17,8 @@ const PHOTO_FILES = [
 	'raw0029.jpeg',
 	'scan0030.jpeg',
 	'scan019.jpeg',
+	'IMG_1729.jpeg',
+	'IMG_1848.jpeg',
 	// 'scan020.jpeg',
 ] as const;
 

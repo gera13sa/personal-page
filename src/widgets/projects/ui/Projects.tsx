@@ -1,6 +1,8 @@
-import {useRef, useState, type MouseEvent} from 'react';
+import {useEffect, useRef, useState, type MouseEvent} from 'react';
 
+import {INITIAL_WORKS_COUNT, workExamples} from '@shared/config/projectWorks.ts';
 import {profile} from '@shared/config/profile.ts';
+import {AppButton} from '@shared/ui/app-button/AppButton.tsx';
 import {SectionTitle} from '@shared/ui/section-title/SectionTitle.tsx';
 
 import '../styles/projects.scss';
@@ -49,14 +51,63 @@ const ProjectCard = ({
 	);
 };
 
-export const Projects = () => (
-	<section className="projects" id="projects">
-		<SectionTitle text="Проекты" subtitle="Ключевые проекты из опыта работы в госсекторе и МФЦ"/>
+export const Projects = () => {
+	const [showAll, setShowAll] = useState(false);
+	const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-		<div className="projects__grid">
-			{profile.projects.map((project) => (
-				<ProjectCard key={project.id} project={project}/>
-			))}
-		</div>
-	</section>
-);
+	const visibleWorks = showAll ? workExamples : workExamples.slice(0, INITIAL_WORKS_COUNT);
+	const hasMore = workExamples.length > INITIAL_WORKS_COUNT;
+
+	useEffect(() => {
+		const handleKey = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') setActiveIndex(null);
+		};
+		window.addEventListener('keydown', handleKey);
+		return () => window.removeEventListener('keydown', handleKey);
+	}, []);
+
+	return (
+		<section className="projects" id="projects">
+			<SectionTitle text="Проекты" subtitle="Ключевые проекты из опыта работы в госсекторе и МФЦ"/>
+
+			<div className="projects__grid">
+				{profile.projects.map((project) => (
+					<ProjectCard key={project.id} project={project}/>
+				))}
+			</div>
+
+			<div className="projects__gallery">
+				{visibleWorks.map((work, index) => (
+					<div
+						className={`projects__shot ${activeIndex === index ? 'projects__shot--active' : ''}`}
+						key={work.id}
+						onClick={() => setActiveIndex(activeIndex === index ? null : index)}
+					>
+						<img src={work.previewUrl} alt={work.title} className="projects__shot-img" loading="lazy"/>
+						<span className="projects__shot-title">{work.title}</span>
+					</div>
+				))}
+			</div>
+
+			{hasMore && !showAll && (
+				<div className="projects__actions">
+					<AppButton
+						text="Показать ещё"
+						type="glass"
+						elastic
+						onEvent={() => setShowAll(true)}
+					/>
+				</div>
+			)}
+
+			{activeIndex !== null && (
+				<div className="projects__lightbox" onClick={() => setActiveIndex(null)}>
+					<div className="projects__lightbox-content" onClick={(e) => e.stopPropagation()}>
+						<img src={visibleWorks[activeIndex].fullUrl} alt={visibleWorks[activeIndex].title}/>
+						<p className="projects__lightbox-caption">{visibleWorks[activeIndex].title}</p>
+					</div>
+				</div>
+			)}
+		</section>
+	);
+};

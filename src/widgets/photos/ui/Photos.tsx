@@ -28,6 +28,12 @@ export const Photos = () => {
 
 	return (
 		<section className="photos" id="photos">
+			<ScrollReveal delay={200}>
+				<Suspense fallback={<div className="about__cameras-placeholder" aria-hidden/>}>
+					<PhotosCameras/>
+				</Suspense>
+			</ScrollReveal>
+
 			<SectionTitle text="Фотография" />
 
 			<div className="photos__grid">
@@ -62,12 +68,6 @@ export const Photos = () => {
 					</div>
 				</div>
 			)}
-
-			<ScrollReveal delay={200}>
-				<Suspense fallback={<div className="about__cameras-placeholder" aria-hidden/>}>
-					<PhotosCameras/>
-				</Suspense>
-			</ScrollReveal>
 		</section>
 	);
 };
